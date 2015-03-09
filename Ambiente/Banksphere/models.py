@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 from django.db import models
-from random import choice
+
 
 # Create your models here.
 
