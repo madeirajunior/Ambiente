@@ -1,14 +1,17 @@
 #-*- coding: utf-8 -*-
 from django.db import models
-
-
-# Create your models here.
-
 class Projetos(models.Model):
     nome = models.CharField("Nome", max_length=100)
+    ens = models.CharField ("Aplicações", max_length=100)
     
     def __str__(self):
             return self.nome
+    
+    def get_servidores_count(self):
+        return self.projeto.count()
+    
+    def get_proj_detail_url(self):
+        return u"proj_detail/%i" % self.id
     
     class Meta:
         ordering = ['nome']
@@ -17,7 +20,7 @@ class Projetos(models.Model):
 
 class Servidores(models.Model):
     nome = models.CharField("Nome", max_length=100)
-    projeto = models.ForeignKey("Projetos", related_name="Projetos")
+    projeto = models.ForeignKey("Projetos", related_name="projeto")
     so = models.CharField("Sistema Operacional", choices=(
         ('LINUX', "LINUX"),
         ('WINDOWS', "WINDOWS"),
