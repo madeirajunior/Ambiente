@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Listagem de Servidores</title>
+{% endblock title %}
+
+{% block content %}
+    <h2>{{projetos}}</h2>
+	{% for serv in servidores %}
+
+	
+	  <div class="container">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#{{serv.id}}">{{serv.nome}} - {{serv.ambiente}}</a>
+            </h4>
+          </div>
+          <div id="{{serv.id}}" class="panel-collapse collapse">
+          	<div class="panel-body">
+            
+            <table class="table table-hover table-bordered ">
+            <thead>	
+            		<th><h4>Celula</h4></th>
+					<th><h4>Ambiente</h4></th>
+					<th><h4>Funcao</h4></th>
+					<th><h4>Sistema Operacional<h4></th>
+					<th><h4>Endereco IP<h4></th>
+									
+			</thead>
+			<tbody>
+      		<tr>
+      				<td>{{serv.celula}}</td>
+        			<td>{{serv.ambiente}}</td>
+        			<td>{{serv.funcao}}</td>
+        			<td>{{serv.so}}</td>
+        			<td>{{serv.ip}}</td>
+      		</tr>
+    		</tbody>
+			</table>
+		   </div>
+		   </div>
+		   </div>
+		   </div>
+		   </div>
+
+	{% endfor %}
+{% endblock content %}
