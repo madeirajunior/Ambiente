@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    <title>Lista de Projetos e Servidores</title>
+{% endblock title %}
+
+{% block content %}
+    <!-- search form -->
+    <form class="navbar-form navbar-right" action="." method="get">
+        <input id="search_box" name="search_box" type="text" placeholder="Search..." class="form-control">
+        <button type="submit" class="btn btn-success form-control"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+
+    <h1>Projetos</h1>
+    {% for projeto in proj %}
+    	 
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="badge">Numero de Servidores - {{ projeto.get_servidores_count}}</span>
+          	  
+            <h4><a href="{{ projeto.get_proj_detail_url }}">{{ projeto.nome }}</a></h4>
+          
+          </li>
+        </ul>
+        
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Listagem de Servidores</title>
+{% endblock title %}
+
+{% block content %}
+    <h2>{{projetos}}</h2>
+       
+	{% for srv in servidores %}
+	  <div class="container">  
+      <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+
+          <div class="panel-heading">      	
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#{{srv.id}}"><center>{{srv.nome}} - {{srv.funcao}} - {{srv.ambiente}}</center></a>          
+            </h4>
+          </div>
+     
+      <div id="{{srv.id}}" class="panel-collapse collapse on">
+
+  	 <div class="table-responsive">
+  	 <table class="table table-hover">
+  	 <thead>
+        <tr>
+            <th>Aplication Servers</th>
+            <th>Clusters</th>
+            <th>Celula</th>
+            <th>IP</th>
+            <th>Sistema Operacional</th>
+        </tr>
+    </thead>
+   
+   	<tbody>
+    {% for app in srv.appservers.all %}
+        <tr>
+            <td>{{app.nome}}</td>
+            <td>{{app.cluster}}</td>
+            <td>{{srv.celula}}</td>
+            <td>{{srv.ip}}</td>
+            <td>{{srv.so}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+   
+  	</table>
+	  </div>  	  
+	  </div>
+	  </div>
+ 	  </div>
+	  </div>
+
+	{% endfor %}
+	
+	{% endblock content %}
