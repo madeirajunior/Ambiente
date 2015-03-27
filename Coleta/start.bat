@@ -1,6 +1,6 @@
 echo off
-set PYTHON_HOME=C:/Python/python/App
-set SCRIPT_HOME=C:/Users/xb163746/Documents/Workspace/TESTE/TestaWebServers
+set PYTHON_HOME=C:/Python27
+set SCRIPT_HOME=C:/Users/xb146806/workspace_new/Coleta
 set WEBSPHERE_HOME=C:/IBM/WebSphere/AppServer
 
 set PATH=%WEBSPHERE_HOME%/bin;%PATH%
